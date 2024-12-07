@@ -22,7 +22,6 @@ const SingupModal = () => {
   const loginGoogle = async () => {
     const url = `https://accounts.google.com/o/oauth2/v2/auth?redirect_uri=${process.env.NEXT_PUBLIC_GOOGLE_REDIRECT_URL}&prompt=consent&response_type=code&client_id=${process.env.NEXT_PUBLIC_CLIENT_ID_GOOGLE}&scope=openid%20email%20profile&access_type=offline`;
     router.push(url);
-    console.log(url);
   };
 
   const submitSingup = async () => {
@@ -39,8 +38,7 @@ const SingupModal = () => {
       "application/json"
     );
 
-    console.log("response");
-    console.log(response);
+
     if (response.user_id) {
       const response = await apiService.post(
         "/api/auth/login/",

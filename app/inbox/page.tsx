@@ -30,7 +30,6 @@ const InboxPage = async () => {
   }
 
   const conversations = await apiService.get<Response>("/api/chat/");
-  console.log(conversations);
 
   if (conversations.status !== 200) {
     return (

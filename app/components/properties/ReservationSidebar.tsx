@@ -1,16 +1,13 @@
 "use client";
 import React from "react";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Range } from "react-date-range";
 
 import apiService from "@/app/service/apiService";
-import useLoginModal from "../hooks/useLoginModal";
 import { differenceInDays, eachDayOfInterval, format } from "date-fns";
-import { init } from "next/dist/compiled/webpack/webpack";
 import DatePicker from "../forms/Calendar";
-import { getAccessToken } from "@/app/lib/actions";
-import LoginModal from "../modals/LoginModal";
+import useLoginModal from "../hooks/useLoginModal";
 
 const initialDateRange: Range = {
   startDate: new Date(),
@@ -72,10 +69,8 @@ const ReservationSidebar: React.FC<ReservationSidebarProps> = ({
       );
 
       if (response.data === "Property booked successfully") {
-        console.log("Booking successful");
       } else {
-        console.log("Booking failed");
-        console.log(formData);
+
       }
     } else {
       longinModal.open();

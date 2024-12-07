@@ -44,9 +44,7 @@ const PropertyList: React.FC<PropertyListProps> = ({
       if (property.id === id) {
         property.favorited = favorited;
         if (favorited) {
-          console.log("Add to favorite list");
         } else {
-          console.log("Remove from favorite list");
         }
       }
       return property;
@@ -84,12 +82,10 @@ const PropertyList: React.FC<PropertyListProps> = ({
         urlQuery += `&category=${category}`;
       }
       if (urlQuery.length) {
-        console.log("Query", urlQuery);
         urlQuery = "?" + urlQuery.substring(1);
         url += urlQuery;
       }
     }
-    console.log(url);
 
     const response = await apiService.get<PropertyListResponse>(url);
 

@@ -13,7 +13,6 @@ export async function handleRefreshToken() {
     },
     body: JSON.stringify({ refresh: refreshToken }),
   }).then(response => response.json()).then((json)=>{
-    console.log(json);
 
     if (json.access){
       cookies().set("session_access_token", json.access, {
@@ -28,7 +27,6 @@ export async function handleRefreshToken() {
       resetAuthCookies();
     }
   }).catch((error) => {
-    console.log(error);
     resetAuthCookies();
   });
   resetAuthCookies();
@@ -39,7 +37,7 @@ export async function handleRefreshToken() {
 
 export async function handleLogin(
   userId: string,
-  acessToken: string,
+  accessToken: string,
   refreshToken: string
 ) {
   cookies().set("session_userId", userId, {
@@ -48,14 +46,12 @@ export async function handleLogin(
     maxAge: 60 * 60 * 24 * 7,
     path: "/",
   });
-
-  cookies().set("session_access_token", acessToken, {
+  cookies().set("session_access_token", accessToken, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     maxAge: 60 * 60,
     path: "/",
   });
-
   cookies().set("session_refresh_token", refreshToken, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",

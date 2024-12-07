@@ -57,18 +57,15 @@ const AddPropertyModal = () => {
       formData.append("country", dataCountry.label);
       formData.append("image", image);
       formData.append("category", dataCategory);
-      console.log(formData.values());
       const response = await apiService.post(
         "/api/properties/create/",
         formData
       );
       if (response.data === "Property created successfully") {
-        console.log("success");
         router.push("/?added=true");
         addPropertyModal.close();
         router.refresh();
       } else {
-        console.log("error");
         const tmpError: string[] = Object.values(response).map((error: any) => {
           return error;
         });

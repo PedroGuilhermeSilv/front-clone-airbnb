@@ -26,7 +26,6 @@ const ContactButton: React.FC<ContactButtonProps> = ({
 
   const startConversation = async () => {
     token = await getAccessToken();
-    console.log(token);
     if (userId) {
       const response = await apiService.get<Response>(`/api/chat/start/${landlord_id}/`);
       if (response.data.conversation_id) {

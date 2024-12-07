@@ -25,7 +25,7 @@ type Response = PropertyType;
 
 const PropertyDetailPage = async ({ params }: { params: { id: string } }) => {
   const userId = await getUserId();
-  const property = await apiService.get<Response>(`/api/properties/${params.id}`);
+  const property = await apiService.get<Response>(`/api/properties/${params.id}/`);
   return (
     <main className="max-w-[1500px] mb-6 mx-auto px-6">
       <div className="w-full h-[64vh] mb-9 overflow-hidden rounded-xl relative">

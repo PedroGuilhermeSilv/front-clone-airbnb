@@ -20,7 +20,6 @@ const ConversationDetail: React.FC<ConversationDetailProps> = ({
   token,
   messages,
 }) => {
-  console.log(conversation);
   const messagesDiv = useRef<HTMLDivElement>(null);
   const [newMessage, setNewMessage] = useState("");
   const [realtimeMessages, setRealTimeMessages] = useState<MessageType[]>([]);
@@ -38,7 +37,6 @@ const ConversationDetail: React.FC<ConversationDetailProps> = ({
   useEffect(() => {}, []);
 
   useEffect(() => {
-    console.log("Connection state changed", readyState);
   }, [readyState]);
 
   useEffect(() => {

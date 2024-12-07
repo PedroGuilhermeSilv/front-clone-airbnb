@@ -19,8 +19,6 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({
       `/api/properties/${id}/toggle-favorite/`,
       {}
     );
-    console.log("botao")
-    console.log(is_favorited)
     markAsFavorite(response.is_favorited);
   };
   return (

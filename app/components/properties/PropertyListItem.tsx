@@ -13,7 +13,6 @@ const PropertyListItem: React.FC<PropertyListItemProps> = ({
   markFavorite,
 }) => {
   const router = useRouter();
-  console.log(`propertu is ${property.favorited}`);
   return (
     <div
       className="cursor-pointer"

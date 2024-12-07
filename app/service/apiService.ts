@@ -1,4 +1,3 @@
-import { rejects } from "assert";
 import { getAccessToken } from "../lib/actions";
 
 const apiService = {
@@ -7,7 +6,6 @@ const apiService = {
     accept?: string,
     contentType?: string
   ): Promise<{ status: number; data: T }> {
-    console.log("GET", url);
 
     const tokenId = await getAccessToken();
     
@@ -49,8 +47,7 @@ const apiService = {
     contentType?: any,
     accept?: any
   ): Promise<any> {
-    console.log("POST", url);
-    console.log("data", data);
+
     const headers: { [key: string]: string } = {};
     const tokenId = await getAccessToken();
     if (tokenId) {
@@ -71,7 +68,6 @@ const apiService = {
       })
         .then((response) => response.json())
         .then((json) => {
-          console.log("response", json);
 
           resolve(json);
         })

@@ -29,13 +29,11 @@ const LoadingModal: React.FC<LoadingModalProps> = ({ code }) => {
     setLoading(false);
     router.push("/");
   }
-  console.log(code);
   const fetchApiData = async () => {
     try {
       const response = await apiService.get<Response>(
         `/api/auth/google/?code=${code}`
       );
-      console.log("Response aq", response.status);
       if (response.status == 200) {
         handleLogin(
           response.data.user_id,
