@@ -24,7 +24,6 @@ type Response = PropertyType;
 
 
 const PropertyDetailPage = async ({ params }: { params: { id: string } }) => {
-  const userId = await getUserId();
   const property = await apiService.get<Response>(`/api/properties/${params.id}/`);
   return (
     <main className="max-w-[1500px] mb-6 mx-auto px-6">
@@ -64,7 +63,7 @@ const PropertyDetailPage = async ({ params }: { params: { id: string } }) => {
           <hr />
           <p className=" mt-6 text-lg">{property.data.description}</p>
         </div>
-        <ReservationSidebar userId={userId} property={property.data} />
+        <ReservationSidebar userId={property.data.landlord.id} property={property.data} />
       </div>
     </main>
   );

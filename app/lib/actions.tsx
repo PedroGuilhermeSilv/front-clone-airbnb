@@ -12,9 +12,9 @@ export async function handleRefreshToken() {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ refresh: refreshToken }),
-  }).then(response => response.json()).then((json)=>{
+  }).then(response => response.json()).then((json) => {
 
-    if (json.access){
+    if (json.access) {
       cookies().set("session_access_token", json.access, {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
@@ -32,7 +32,7 @@ export async function handleRefreshToken() {
   resetAuthCookies();
 
   return token;
-  
+
 }
 
 export async function handleLogin(
@@ -61,9 +61,7 @@ export async function handleLogin(
 }
 
 export async function resetAuthCookies() {
-  cookies().set("session_userId", "");
-  cookies().set("session_access_token", "");
-  cookies().set("session_refresh_token", "");
+
 }
 
 export async function getUserId() {
