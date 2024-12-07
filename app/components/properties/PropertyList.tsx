@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import PropertyListItem from "./PropertyListItem";
-import apiService from "../../service/apiService";
 import { getUserId } from "@/app/lib/actions";
-import useSearchModal from "../hooks/useSearchModels";
 import format from "date-fns/format";
 import { useSearchParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
+import apiService from "../../service/apiService";
+import useSearchModal from "../hooks/useSearchModels";
+import PropertyListItem from "./PropertyListItem";
 
 export type PropertyType = {
   id: string;
