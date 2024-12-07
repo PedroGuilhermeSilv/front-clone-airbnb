@@ -24,12 +24,11 @@ export async function handleRefreshToken() {
 
       return json.access;
     } else {
-      resetAuthCookies();
+      return undefined;
     }
   }).catch((error) => {
-    resetAuthCookies();
+    return undefined;
   });
-  resetAuthCookies();
 
   return token;
 
@@ -61,7 +60,9 @@ export async function handleLogin(
 }
 
 export async function resetAuthCookies() {
-
+  cookies().set("session_userId", "");
+  cookies().set("session_access_token", "");
+  cookies().set("session_refresh_token", "");
 }
 
 export async function getUserId() {
